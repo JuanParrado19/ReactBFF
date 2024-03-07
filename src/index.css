@@ -1,0 +1,6 @@
+.fondo{
+  background-image: url('/public/img/fondo.png');
+  background-position: 50%  -100px;
+  background-size: 1000px;
+  
+}
