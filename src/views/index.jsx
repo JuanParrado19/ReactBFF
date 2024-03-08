@@ -16,8 +16,7 @@ const index = () => {
         getAllPokemones()
     }, [])
     const getPokemones = async (o) => {
-        //const liga = 'https://pokeapi.co/api/v2/pokemon?limit='+limit+'&offset='+o;
-        const liga = '/api/pokemon'
+        const liga = '/api/pokemon?limit='+limit+'&offset='+o;
         axios.get(liga).then(async (response) => {
             const respuesta = response.data;
             setPokemones(respuesta.results);
@@ -25,8 +24,7 @@ const index = () => {
         })
     }
     const getAllPokemones = async () => {
-        const liga = 'https://pokeapi.co/api/v2/pokemon?limit=10000&offset=0';
-        //const liga = '/api/pokemon/'
+        const liga = '/api/pokemon-search/pokemon';
         axios.get(liga).then(async (response) => {
             const respuesta = response.data;
             setAllPokemones(respuesta.results);
@@ -38,8 +36,13 @@ const index = () => {
                 setListado([]);
                 setTimeout(() => {
                     setListado(Allpokemones.filter(p => p.name.includes(filtro)))
-                })
+                },100)
             }
+        }else if(filtro.trim() == ''){
+            setListado([]);
+            setTimeout(() => {
+                setListado(pokemones);
+            },100);
         }
 
     }
@@ -47,6 +50,9 @@ const index = () => {
     return (
         <Container className='shadow bg-white-transparent mt-3'>
             <Row>
+                <h1 className='text-center'>POKEDEX BFF</h1>
+            </Row>
+            <Row className='animate__animated animate__bounce'>
                 <Col>
                     <InputGroup className='mt-3'>
                         <InputGroupText><i className='fa-solid fa-search mr-1' />  Buscar</InputGroupText>
