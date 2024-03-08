@@ -35,10 +35,10 @@ const TarjetaPoke = (params) => {
         <Card className={'shadow border-4 border-black '+cardClass}>
             <CardImg src={imagen} height='150' className='p-2'/>
             <CardBody className='text-center'>
-                <Badge pill color='danger'># {pokemon.id}</Badge>
-                <Label className='fs-4 text-capitalize text-font-15'>{pokemon.name}</Label>
+                <Badge pill color='danger' className='m-1'>#  {pokemon.id}  </Badge>
+                <Label className='fs-4 text-capitalize text-font-15'>  {pokemon.name}</Label>
             </CardBody>
-            <CardFooter className='bg-grey'>
+            <CardFooter className='bg-grey align-middle'>   
                 <Link className='btn btn-dark'>
                     <i className='fa-solid fa-arrow-up-right-from-square'></i>  Detalle
                 </Link>
