@@ -1,0 +1,18 @@
+version: '3.4'
+
+services:
+  bff-pokeapi:
+    image: juanparrado/bff:latest
+    container_name: "bff-pokeapi"
+    restart: always
+    ports:
+      - "8090:8090"
+
+  web:
+    image: juanparrado/bfffront:latest
+    container_name: front-pokeapi
+    restart:  always
+    ports:
+      - "5173:5173"
+    links:
+      - "bff-pokeapi:bff"
